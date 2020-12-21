@@ -12,6 +12,8 @@ To run the program from command line, download the files, go to the directory, t
 ### HammingDist
 
 #### Class Variables
+- **MESONET_FILE**: private static final String, stores the name of the Mesonet File
+- **HEADER_LINES_TO_SKIP**: private static final int, Number of lines used for header info that wont need to be read
 - **allStations**: private ArrayList<String>, stores all STIDs from Mesonet.txt
 - **nrmn**: private String, is "NRMN"
 - **s1**: private String, value of the first inputted String
@@ -56,6 +58,8 @@ This method finds the Hamming Distance between two strings and returns the value
 This method runs the string from the constructor through the hamm method, stores how many stations are the same Hamming Distance from each selected station as it is fron NRMN, and prints this data.
 
 ### DateTimeOne
+#### Class Variables
+- **NUMBER_OF_SECONDS_TO_SLEEP**: private static final int, seconds that must elapse during sleep
 #### Methods
 
 ##### dateTimeNow()
