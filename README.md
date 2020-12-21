@@ -24,6 +24,8 @@ To run the program from command line, download the files, go to the directory, t
 ###### Inputs
 - **s1**: first string that will be used
 - **s2**: second string that will be used
+###### Possible Errors
+Throws IOException due to FileInputStream and Scanner
 ###### Functionality
 This method is a constructor and it also takes in the Mesonet.txt file using FileInputStream  
 As it takes in the STIDs from Mesonet.txt, it adds them to the **allStations** ArrayList
@@ -34,6 +36,8 @@ As it takes in the STIDs from Mesonet.txt, it adds them to the **allStations** A
 - **second**: second string to be used for Hamming Distance calculation
 ###### Output
 - **counter**: value of Hamming Distance
+###### Possible Errors
+May throw error if given a string of incorrect size
 ###### Functionality
 This method finds the Hamming Distance between two strings and returns the value
 
