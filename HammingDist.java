@@ -1,6 +1,7 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
+
+import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.io.IOException;
 
 public class HammingDist {
@@ -15,12 +16,22 @@ public class HammingDist {
 		this.s2 = s2;
 
 		allStations = new ArrayList<String>();
-		BufferedReader br = new BufferedReader(new FileReader("Mesonet.txt"));
-		String dataLine;
-		while ((dataLine = br.readLine()) != null) {
-			allStations.add(dataLine);
+		FileInputStream fileByteStream = null; // File input stream
+		fileByteStream = new FileInputStream("Mesonet.txt");
+		Scanner inFS = new Scanner(fileByteStream);
+
+		// skipping the headers
+		for (int i = 0; i <= 4; i++) {
+			inFS.nextLine();
 		}
-		br.close();
+
+		while (inFS.hasNextLine()) {
+			allStations.add(inFS.next());
+			inFS.nextLine();
+		}
+
+		inFS.close();
+
 	}
 
 	public int hamm(String first, String second) {
@@ -43,7 +54,11 @@ public class HammingDist {
 		int hd2 = 0;
 		for (int k = 0; k < allStations.size(); k++) {
 			int dist1 = hamm(s1, allStations.get(k));
+			// System.out.println(s1 + ", " + allStations.get(k) + ", " +
+			// Integer.toString(dist1));
 			int dist2 = hamm(s2, allStations.get(k));
+			// System.out.println(s2 + ", " + allStations.get(k) + ", " +
+			// Integer.toString(dist2));
 			if (dist1 == nrmnDist1) {
 				hd1++;
 			}
@@ -58,6 +73,7 @@ public class HammingDist {
 				+ ": Number of stations with Hamming Distance " + Integer.toString(nrmnDist1) + " : "
 				+ Integer.toString(hd1) + ".\n" + "For " + s2 + ": Number of stations with Hamming Distance "
 				+ Integer.toString(nrmnDist2) + ": " + Integer.toString(hd2) + ".";
+
 		return msg;
 	}
 }
