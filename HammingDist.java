@@ -70,7 +70,7 @@ public class HammingDist {
 
 		String msg = "The Hamming distance between Norman and " + s1 + " is " + Integer.toString(nrmnDist1)
 				+ "; between Norman and " + s2 + " is " + Integer.toString(nrmnDist2) + ".\n" + "For " + s1
-				+ ": Number of stations with Hamming Distance " + Integer.toString(nrmnDist1) + " : "
+				+ ": Number of stations with Hamming Distance " + Integer.toString(nrmnDist1) + ": "
 				+ Integer.toString(hd1) + ".\n" + "For " + s2 + ": Number of stations with Hamming Distance "
 				+ Integer.toString(nrmnDist2) + ": " + Integer.toString(hd2) + ".";
 
