@@ -60,18 +60,13 @@ public class HammingDist {
 		int hd2 = 0;
 		for (int k = 0; k < allStations.size(); k++) {
 			int dist1 = hamm(s1, allStations.get(k));
-			// System.out.println(s1 + ", " + allStations.get(k) + ", " +
-			// Integer.toString(dist1));
 			int dist2 = hamm(s2, allStations.get(k));
-			// System.out.println(s2 + ", " + allStations.get(k) + ", " +
-			// Integer.toString(dist2));
 			if (dist1 == nrmnDist1) {
 				hd1++;
 			}
 			if (dist2 == nrmnDist2) {
 				hd2++;
 			}
-
 		}
 
 		String msg = "The Hamming distance between Norman and " + s1 + " is " + Integer.toString(nrmnDist1)
