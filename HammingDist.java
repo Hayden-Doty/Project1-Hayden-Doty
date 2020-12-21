@@ -6,6 +6,8 @@ import java.io.IOException;
 
 public class HammingDist {
 
+	private static final String MESONET_FILE = "Mesonet.txt";
+	private static final int HEADER_LINES_TO_SKIP = 4;
 	private ArrayList<String> allStations;
 	private String s1;
 	private String s2;
@@ -15,15 +17,12 @@ public class HammingDist {
 		this.s1 = s1;
 		this.s2 = s2;
 
-		allStations = new ArrayList<String>();
+		allStations = new ArrayList<>();
 		FileInputStream fileByteStream = null; // File input stream
-		fileByteStream = new FileInputStream("Mesonet.txt");
+		fileByteStream = new FileInputStream(MESONET_FILE);
 		Scanner inFS = new Scanner(fileByteStream);
 
-		// skipping the headers
-		for (int i = 0; i <= 4; i++) {
-			inFS.nextLine();
-		}
+		skipHeaderLines(inFS);
 
 		while (inFS.hasNextLine()) {
 			allStations.add(inFS.next());
@@ -32,6 +31,13 @@ public class HammingDist {
 
 		inFS.close();
 
+	}
+
+	private void skipHeaderLines(Scanner inFS) {
+		// skipping the headers
+		for (int i = 0; i <= HEADER_LINES_TO_SKIP; i++) {
+			inFS.nextLine();
+		}
 	}
 
 	public int hamm(String first, String second) {
